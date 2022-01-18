@@ -58,6 +58,8 @@ public struct ValidationModifier: ViewModifier {
             let text = Text(message)
                     .foregroundColor(Color.red)
                     .font(.caption)
+                    .padding(.horizontal)
+                    .fixedSize(horizontal: false, vertical: true)
             return AnyView(text)
         }
     }
