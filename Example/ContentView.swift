@@ -9,24 +9,35 @@ struct ContentView: View {
     // 4
     @ObservedObject var formInfo = FormInfo()
     @State var isSaveDisabled = true
+    
+    @State var isFirstNameError: Bool = false
 
     var body: some View {
         NavigationView {
-            Form {
+            VStack {
 
                 Section(header: Text("Name")) {
                     TextField("First Name", text: $formInfo.firstName)
-                            .validation(formInfo.firstNameValidation) // 5
+                        .border(isFirstNameError ? .red : .blue)
+                        .validation(formInfo.firstNameValidation) { isValid in
+                                self.isFirstNameError = !isValid
+                        
+                        }
+                           // 5
 
                     TextField("Middle Names", text: $formInfo.middleNames)
 
                     TextField("Last Name", text: $formInfo.lastNames)
-                            .validation(formInfo.lastNamesValidation)
+                            .validation(formInfo.lastNamesValidation){ validation in
+                                print("\(validation)")
+                            }
                 }
 
                 Section(header: Text("Password")) {
                     TextField("Password", text: $formInfo.password)
-                            .validation(formInfo.passwordValidation)
+                            .validation(formInfo.passwordValidation){ validation in
+                                print("\(validation)")
+                            }
                     TextField("Confirm Password", text: $formInfo.confirmPassword)
                 }
 
@@ -35,15 +46,21 @@ struct ContentView: View {
                             selection: $formInfo.birthday,
                             displayedComponents: [.date],
                             label: { Text("Birthday") }
-                    ).validation(formInfo.birthdayValidation)
+                    ).validation(formInfo.birthdayValidation){ validation in
+                        print("\(validation)")
+                    }
                 }
 
                 Section(header: Text("Address")) {
                     TextField("Street Number or Name", text: $formInfo.street)
-                            .validation(formInfo.streetValidation)
+                            .validation(formInfo.streetValidation){ validation in
+                                print("\(validation)")
+                            }
 
                     TextField("First Line", text: $formInfo.firstLine)
-                            .validation(formInfo.firstLineValidation)
+                            .validation(formInfo.firstLineValidation){ validation in
+                                print("\(validation)")
+                            }
 
                     TextField("Second Line", text: $formInfo.secondLine)
 

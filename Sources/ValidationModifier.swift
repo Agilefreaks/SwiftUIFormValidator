@@ -23,8 +23,8 @@ public extension View {
     ///
     /// - Parameter container:
     /// - Returns:
-    func validation(_ container: ValidationContainer) -> some View {
-        self.modifier(ValidationModifier(container: container))
+    func validation(_ container: ValidationContainer, callback: @escaping (Bool)->()) -> some View {
+        self.modifier(ValidationModifier(isFieldValid: callback, container: container))
     }
 
 }
@@ -32,10 +32,13 @@ public extension View {
 /// A modifier for applying the validation to a view.
 public struct ValidationModifier: ViewModifier {
     @State var latestValidation: Validation = .success
+    
+    public var isFieldValid:(Bool)->()
 
     public let container: ValidationContainer
 
-    public init(container: ValidationContainer) {
+    public init(isFieldValid: @escaping (Bool)->(), container: ValidationContainer) {
+        self.isFieldValid = isFieldValid
         self.container = container
     }
 
@@ -45,8 +48,18 @@ public struct ValidationModifier: ViewModifier {
             validationMessage
         }.onReceive(container.publisher) { validation in
             self.latestValidation = validation
+            
+            switch validation {
+                case .failure(_):self.isFieldValid(false)
+                case .success: self.isFieldValid(true)
+            }
         }.onReceive(container.subject) { validation in
             self.latestValidation = validation
+            
+            switch validation {
+                case .failure(_):self.isFieldValid(false)
+                case .success: self.isFieldValid(true)
+            }
         }
     }
 
