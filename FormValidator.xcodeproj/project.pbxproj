@@ -15,6 +15,20 @@
 		04A4DE24239AD0CC00AA26B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04A4DE22239AD0CC00AA26B7 /* LaunchScreen.storyboard */; };
 		04A4DE2B239AD4A900AA26B7 /* FormValidator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4DDDA239AB0C800AA26B7 /* FormValidator.framework */; };
 		04A4DE2C239AD4A900AA26B7 /* FormValidator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04A4DDDA239AB0C800AA26B7 /* FormValidator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		17CF586727BA9C1D00848EFC /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586427BA9C1D00848EFC /* Montserrat-Medium.ttf */; };
+		17CF586827BA9C1D00848EFC /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586427BA9C1D00848EFC /* Montserrat-Medium.ttf */; };
+		17CF586927BA9C1D00848EFC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586527BA9C1D00848EFC /* Montserrat-Regular.ttf */; };
+		17CF586A27BA9C1D00848EFC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586527BA9C1D00848EFC /* Montserrat-Regular.ttf */; };
+		17CF586B27BA9C1D00848EFC /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586627BA9C1D00848EFC /* Montserrat-SemiBold.ttf */; };
+		17CF586C27BA9C1D00848EFC /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586627BA9C1D00848EFC /* Montserrat-SemiBold.ttf */; };
+		17CF587127BA9D0E00848EFC /* PTSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586D27BA9D0D00848EFC /* PTSans-BoldItalic.ttf */; };
+		17CF587227BA9D0E00848EFC /* PTSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586D27BA9D0D00848EFC /* PTSans-BoldItalic.ttf */; };
+		17CF587327BA9D0E00848EFC /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586E27BA9D0D00848EFC /* PTSans-Regular.ttf */; };
+		17CF587427BA9D0E00848EFC /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586E27BA9D0D00848EFC /* PTSans-Regular.ttf */; };
+		17CF587527BA9D0E00848EFC /* PTSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586F27BA9D0E00848EFC /* PTSans-Italic.ttf */; };
+		17CF587627BA9D0E00848EFC /* PTSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF586F27BA9D0E00848EFC /* PTSans-Italic.ttf */; };
+		17CF587727BA9D0E00848EFC /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF587027BA9D0E00848EFC /* PTSans-Bold.ttf */; };
+		17CF587827BA9D0E00848EFC /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CF587027BA9D0E00848EFC /* PTSans-Bold.ttf */; };
 		58B8302D8881F82DF8310D6D /* String+OrIfEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B832935B706489E6CE7074 /* String+OrIfEmpty.swift */; };
 		58B83066A7B92AD3E018554B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B83F17FB767B7F6D9E7A31 /* Regex.swift */; };
 		58B830A9F24CA52C76E12992 /* PrefixValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B8315BEA31212046F4C53C /* PrefixValidator.swift */; };
@@ -97,6 +111,13 @@
 		04A4DE20239AD0CC00AA26B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04A4DE23239AD0CC00AA26B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04A4DE25239AD0CC00AA26B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17CF586427BA9C1D00848EFC /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		17CF586527BA9C1D00848EFC /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		17CF586627BA9C1D00848EFC /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		17CF586D27BA9D0D00848EFC /* PTSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		17CF586E27BA9D0D00848EFC /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
+		17CF586F27BA9D0E00848EFC /* PTSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Italic.ttf"; sourceTree = "<group>"; };
+		17CF587027BA9D0E00848EFC /* PTSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Bold.ttf"; sourceTree = "<group>"; };
 		1A54FBDBFEE81BC84F3718EB /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		1A54FBE1E997F88975C3BD8C /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		58B830B5AED428760D4FD47F /* DateValidatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateValidatorTest.swift; sourceTree = "<group>"; };
@@ -186,6 +207,7 @@
 		0446C75C2385C60D00195C17 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				17CF585F27BA9B2C00848EFC /* Resources */,
 				04E8A028238FF67300BEF1F1 /* Supporting Files */,
 				58B83D7EC0125AF5DF7618AB /* ValidationModifier.swift */,
 				58B837EE09BA5B7C1F00013E /* FormValidator */,
@@ -244,6 +266,28 @@
 				04A4DDDC239AB0C800AA26B7 /* FormValidator.h */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17CF585F27BA9B2C00848EFC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17CF586327BA9BF400848EFC /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		17CF586327BA9BF400848EFC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				17CF587027BA9D0E00848EFC /* PTSans-Bold.ttf */,
+				17CF586D27BA9D0D00848EFC /* PTSans-BoldItalic.ttf */,
+				17CF586F27BA9D0E00848EFC /* PTSans-Italic.ttf */,
+				17CF586E27BA9D0D00848EFC /* PTSans-Regular.ttf */,
+				17CF586427BA9C1D00848EFC /* Montserrat-Medium.ttf */,
+				17CF586527BA9C1D00848EFC /* Montserrat-Regular.ttf */,
+				17CF586627BA9C1D00848EFC /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		58B837EE09BA5B7C1F00013E /* FormValidator */ = {
@@ -389,6 +433,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17CF587327BA9D0E00848EFC /* PTSans-Regular.ttf in Resources */,
+				17CF587527BA9D0E00848EFC /* PTSans-Italic.ttf in Resources */,
+				17CF587727BA9D0E00848EFC /* PTSans-Bold.ttf in Resources */,
+				17CF586927BA9C1D00848EFC /* Montserrat-Regular.ttf in Resources */,
+				17CF587127BA9D0E00848EFC /* PTSans-BoldItalic.ttf in Resources */,
+				17CF586727BA9C1D00848EFC /* Montserrat-Medium.ttf in Resources */,
+				17CF586B27BA9C1D00848EFC /* Montserrat-SemiBold.ttf in Resources */,
 				58B83B4F8DF60191794B74C1 /* SwiftUIFormValidator.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,8 +455,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17CF586A27BA9C1D00848EFC /* Montserrat-Regular.ttf in Resources */,
+				17CF587627BA9D0E00848EFC /* PTSans-Italic.ttf in Resources */,
 				04A4DE24239AD0CC00AA26B7 /* LaunchScreen.storyboard in Resources */,
+				17CF587227BA9D0E00848EFC /* PTSans-BoldItalic.ttf in Resources */,
+				17CF586827BA9C1D00848EFC /* Montserrat-Medium.ttf in Resources */,
 				04A4DE21239AD0CC00AA26B7 /* Assets.xcassets in Resources */,
+				17CF586C27BA9C1D00848EFC /* Montserrat-SemiBold.ttf in Resources */,
+				17CF587427BA9D0E00848EFC /* PTSans-Regular.ttf in Resources */,
+				17CF587827BA9D0E00848EFC /* PTSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
