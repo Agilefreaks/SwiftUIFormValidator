@@ -23,21 +23,23 @@ public extension View {
     ///
     /// - Parameter container:
     /// - Returns:
-    func validation(_ container: ValidationContainer, callback: @escaping (Bool)->()) -> some View {
-        self.modifier(ValidationModifier(isFieldValid: callback, container: container))
+    func validation(_ container: ValidationContainer,
+                    callback: ((Bool)->())? = nil) -> some View {
+        self.modifier(ValidationModifier(isFieldValid: callback,
+                                         container: container))
     }
-
 }
 
 /// A modifier for applying the validation to a view.
 public struct ValidationModifier: ViewModifier {
     @State var latestValidation: Validation = .success
     
-    public var isFieldValid:(Bool)->()
+    public var isFieldValid:((Bool)->())?
 
     public let container: ValidationContainer
 
-    public init(isFieldValid: @escaping (Bool)->(), container: ValidationContainer) {
+    public init(isFieldValid: ((Bool)->())? = nil,
+                container: ValidationContainer) {
         self.isFieldValid = isFieldValid
         self.container = container
     }
@@ -49,16 +51,20 @@ public struct ValidationModifier: ViewModifier {
         }.onReceive(container.publisher) { validation in
             self.latestValidation = validation
             
-            switch validation {
-                case .failure(_):self.isFieldValid(false)
-                case .success: self.isFieldValid(true)
+            if let isValid = isFieldValid {
+                switch validation {
+                    case .failure(_): isValid(false)
+                    case .success: isValid(true)
+                }
             }
         }.onReceive(container.subject) { validation in
             self.latestValidation = validation
             
-            switch validation {
-                case .failure(_):self.isFieldValid(false)
-                case .success: self.isFieldValid(true)
+            if let isValid = isFieldValid {
+                switch validation {
+                    case .failure(_): isValid(false)
+                    case .success: isValid(true)
+                }
             }
         }
     }
@@ -70,10 +76,21 @@ public struct ValidationModifier: ViewModifier {
         case .failure(let message):
             let text = Text(message)
                     .foregroundColor(Color.red)
-                    .font(.caption)
+                    .font(Font.custom(CustomFont.PTSansRegular.rawValue, size: 10))
                     .padding(.horizontal)
                     .fixedSize(horizontal: false, vertical: true)
             return AnyView(text)
         }
     }
+}
+
+
+public enum CustomFont: String {
+    case PTSansBold = "PTSans-Bold"
+    case PTSansRegular = "PTSans-Regular"
+    case PTSansBoldItalic = "PTSans-BoldItalic"
+    case PTSansItalic = "PTSans-Italic"
+    case MontserratSemiBold = "Montserrat-SemiBold"
+    case MontserratRegular = "Montserrat-Regular"
+    case MontserratMedium = "Montserrat-Medium"
 }

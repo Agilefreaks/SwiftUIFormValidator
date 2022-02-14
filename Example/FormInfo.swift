@@ -30,7 +30,7 @@ class FormInfo: ObservableObject {
                 form: form,
                 errorMessage: "First name is not valid",
                 disableValidation: {
-                    true
+                    false
                 }
         )
     }()

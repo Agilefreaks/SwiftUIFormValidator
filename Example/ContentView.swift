@@ -28,16 +28,12 @@ struct ContentView: View {
                     TextField("Middle Names", text: $formInfo.middleNames)
 
                     TextField("Last Name", text: $formInfo.lastNames)
-                            .validation(formInfo.lastNamesValidation){ validation in
-                                print("\(validation)")
-                            }
+                            .validation(formInfo.lastNamesValidation)
                 }
 
                 Section(header: Text("Password")) {
                     TextField("Password", text: $formInfo.password)
-                            .validation(formInfo.passwordValidation){ validation in
-                                print("\(validation)")
-                            }
+                            .validation(formInfo.passwordValidation)
                     TextField("Confirm Password", text: $formInfo.confirmPassword)
                 }
 
@@ -46,21 +42,15 @@ struct ContentView: View {
                             selection: $formInfo.birthday,
                             displayedComponents: [.date],
                             label: { Text("Birthday") }
-                    ).validation(formInfo.birthdayValidation){ validation in
-                        print("\(validation)")
-                    }
+                    ).validation(formInfo.birthdayValidation)
                 }
 
                 Section(header: Text("Address")) {
                     TextField("Street Number or Name", text: $formInfo.street)
-                            .validation(formInfo.streetValidation){ validation in
-                                print("\(validation)")
-                            }
+                            .validation(formInfo.streetValidation)
 
                     TextField("First Line", text: $formInfo.firstLine)
-                            .validation(formInfo.firstLineValidation){ validation in
-                                print("\(validation)")
-                            }
+                            .validation(formInfo.firstLineValidation)
 
                     TextField("Second Line", text: $formInfo.secondLine)
 
