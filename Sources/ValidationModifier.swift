@@ -24,9 +24,13 @@ public extension View {
     /// - Parameter container:
     /// - Returns:
     func validation(_ container: ValidationContainer,
+                    fontSize: CGFloat = 10,
+                    horizontalPadding: CGFloat = 20,
                     callback: ((Bool)->())? = nil) -> some View {
         self.modifier(ValidationModifier(isFieldValid: callback,
-                                         container: container))
+                                         container: container,
+                                        fontSize: fontSize,
+                                        horizontalPadding: horizontalPadding))
     }
 }
 
@@ -37,11 +41,18 @@ public struct ValidationModifier: ViewModifier {
     public var isFieldValid:((Bool)->())?
 
     public let container: ValidationContainer
+    
+    public let fontSize: CGFloat
+    public let horizontalPadding: CGFloat
 
     public init(isFieldValid: ((Bool)->())? = nil,
-                container: ValidationContainer) {
+                container: ValidationContainer,
+                fontSize: CGFloat = 10,
+                horizontalPadding: CGFloat = 20) {
         self.isFieldValid = isFieldValid
         self.container = container
+        self.fontSize = fontSize
+        self.horizontalPadding = horizontalPadding
     }
 
     public func body(content: Content) -> some View {
@@ -76,8 +87,8 @@ public struct ValidationModifier: ViewModifier {
         case .failure(let message):
             let text = Text(message)
                     .foregroundColor(Color.red)
-                    .font(Font.custom(CustomFont.PTSansRegular.rawValue, size: 10))
-                    .padding(.horizontal)
+                    .font(Font.custom(CustomFont.MontserratRegular.rawValue, size: self.fontSize))
+                    .padding(.horizontal, self.horizontalPadding)
                     .fixedSize(horizontal: false, vertical: true)
             return AnyView(text)
         }
@@ -86,10 +97,6 @@ public struct ValidationModifier: ViewModifier {
 
 
 public enum CustomFont: String {
-    case PTSansBold = "PTSans-Bold"
-    case PTSansRegular = "PTSans-Regular"
-    case PTSansBoldItalic = "PTSans-BoldItalic"
-    case PTSansItalic = "PTSans-Italic"
     case MontserratSemiBold = "Montserrat-SemiBold"
     case MontserratRegular = "Montserrat-Regular"
     case MontserratMedium = "Montserrat-Medium"
