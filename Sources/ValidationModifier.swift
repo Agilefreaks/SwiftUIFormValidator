@@ -24,13 +24,15 @@ public extension View {
     /// - Parameter container:
     /// - Returns:
     func validation(_ container: ValidationContainer,
+                    errorView: AnyView,
                     fontSize: CGFloat = 10,
                     horizontalPadding: CGFloat = 20,
                     callback: ((Bool)->())? = nil) -> some View {
         self.modifier(ValidationModifier(isFieldValid: callback,
                                          container: container,
                                         fontSize: fontSize,
-                                        horizontalPadding: horizontalPadding))
+                                        horizontalPadding: horizontalPadding,
+                                        errorView: errorView))
     }
 }
 
@@ -44,15 +46,18 @@ public struct ValidationModifier: ViewModifier {
     
     public let fontSize: CGFloat
     public let horizontalPadding: CGFloat
+    public let errorView: AnyView
 
     public init(isFieldValid: ((Bool)->())? = nil,
                 container: ValidationContainer,
                 fontSize: CGFloat = 10,
-                horizontalPadding: CGFloat = 20) {
+                horizontalPadding: CGFloat = 20,
+                errorView: AnyView) {
         self.isFieldValid = isFieldValid
         self.container = container
         self.fontSize = fontSize
         self.horizontalPadding = horizontalPadding
+        self.errorView = errorView
     }
 
     public func body(content: Content) -> some View {
@@ -85,12 +90,8 @@ public struct ValidationModifier: ViewModifier {
         case .success:
             return AnyView(EmptyView())
         case .failure(let message):
-            let text = Text(message)
-                    .foregroundColor(Color.red)
-                    .font(Font.custom(CustomFont.MontserratRegular.rawValue, size: self.fontSize))
-                    .padding(.horizontal, self.horizontalPadding)
-                    .fixedSize(horizontal: false, vertical: true)
-            return AnyView(text)
+            let text = errorView
+            return text
         }
     }
 }
