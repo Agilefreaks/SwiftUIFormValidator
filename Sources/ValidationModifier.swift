@@ -61,7 +61,7 @@ public struct ValidationModifier: ViewModifier {
     }
 
     public func body(content: Content) -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 0) {
             content
             validationMessage
         }.onReceive(container.publisher) { validation in
@@ -89,9 +89,8 @@ public struct ValidationModifier: ViewModifier {
         switch latestValidation {
         case .success:
             return AnyView(EmptyView())
-        case .failure(let message):
-            let text = errorView
-            return text
+        case .failure:
+            return errorView
         }
     }
 }
