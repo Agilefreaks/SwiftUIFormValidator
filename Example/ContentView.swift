@@ -20,8 +20,13 @@ struct ContentView: View {
 
                 Section(header: Text("Name")) {
                     TextField("First Name", text: $formInfo.firstName)
-                        .border(isFirstNameError ? .red : .blue)
                         .validation(formInfo.firstNameValidation, errorView: AnyView(ErrorFieldView(errorState: $isError))) { isValid in
+                                self.isFirstNameError = !isValid
+                        
+                        }
+                    
+                    TextField("First Name", text: $formInfo.firstName)
+                        .validation(formInfo.firstNameValidation) { isValid in
                                 self.isFirstNameError = !isValid
                         
                         }

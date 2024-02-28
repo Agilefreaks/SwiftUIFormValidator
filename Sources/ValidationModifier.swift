@@ -24,7 +24,7 @@ public extension View {
     /// - Parameter container:
     /// - Returns:
     func validation(_ container: ValidationContainer,
-                    errorView: AnyView,
+                    errorView: AnyView? = nil,
                     fontSize: CGFloat = 10,
                     horizontalPadding: CGFloat = 20,
                     callback: ((Bool)->())? = nil) -> some View {
@@ -46,13 +46,13 @@ public struct ValidationModifier: ViewModifier {
     
     public let fontSize: CGFloat
     public let horizontalPadding: CGFloat
-    public let errorView: AnyView
+    public let errorView: AnyView?
 
     public init(isFieldValid: ((Bool)->())? = nil,
                 container: ValidationContainer,
                 fontSize: CGFloat = 10,
                 horizontalPadding: CGFloat = 20,
-                errorView: AnyView) {
+                errorView: AnyView? = nil) {
         self.isFieldValid = isFieldValid
         self.container = container
         self.fontSize = fontSize
@@ -63,6 +63,7 @@ public struct ValidationModifier: ViewModifier {
     public func body(content: Content) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             content
+                .border((isFieldValid != nil) ? .blue : .red)
             validationMessage
         }.onReceive(container.publisher) { validation in
             self.latestValidation = validation
@@ -89,8 +90,16 @@ public struct ValidationModifier: ViewModifier {
         switch latestValidation {
         case .success:
             return AnyView(EmptyView())
-        case .failure:
-            return errorView
+        case .failure(let message):
+            if let errorView = errorView {
+                return errorView
+            }
+            let textView = Text(message)
+                .foregroundColor(Color.red)
+                .font(Font.custom(CustomFont.MontserratRegular.rawValue, size: self.fontSize))
+                .padding(.horizontal, self.horizontalPadding)
+                .fixedSize(horizontal: false, vertical: true)
+            return AnyView(textView)
         }
     }
 }
