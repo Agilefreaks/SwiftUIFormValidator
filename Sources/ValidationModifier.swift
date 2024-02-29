@@ -63,7 +63,6 @@ public struct ValidationModifier: ViewModifier {
     public func body(content: Content) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             content
-                .border((isFieldValid != nil) ? .blue : .red)
             validationMessage
         }.onReceive(container.publisher) { validation in
             self.latestValidation = validation
